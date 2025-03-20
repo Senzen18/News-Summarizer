@@ -1,6 +1,33 @@
 import requests
 from bs4 import BeautifulSoup
+from transformers import pipeline
 import pandas as pd
+from sentence_transformers import SentenceTransformer, util
+import itertools
+import re
+import heapq
+
+
+def filter_articles(articles_list, company_name):
+    """
+    Filters articles that only contain the company name.
+
+    Args:
+        articles_list (list): List of dictionaries with 'title' and 'summary'.
+        company_name (str): The company name to filter articles by.
+
+    Returns:
+        list: A filtered list of articles that contain the company name.
+    """
+    articles_list_filtered = []
+
+    for article in articles_list:
+        full_text = (article["title"] + " " + article["summary"]).lower()
+
+        if re.search(company_name.lower(), full_text):
+            articles_list_filtered.append(article)
+
+    return articles_list_filtered
 
 
 def bs4_extractor(company_name: str):
@@ -52,5 +79,62 @@ def bs4_extractor(company_name: str):
         except AttributeError as e:
             print(f"BBC Extraction Error: {e}")
             continue
+    articles_filtered = filter_articles(articles_list)
+    return articles_filtered
 
-    return articles_list
+
+class SentimentAnalyzer:
+
+    def __init__(
+        self, model_id="mrm8488/deberta-v3-ft-financial-news-sentiment-analysis"
+    ):
+        self.pipe = pipeline(task="text-classification", model=model_id)
+
+    def classify_sentiments(self, articles_list):
+        """
+        Classifies the sentiment of each article based on its title and summary.
+
+        Args:
+            articles_list (list of dict): A list of articles with 'title' and 'summary' keys.
+
+        Returns:
+            list of dict: A new list with added 'sentiment' keys.
+        """
+        for article in articles_list:
+            sentiment = self.pipe(f"{article['title']}. {article['summary']}")
+            article["sentiment"] = sentiment[0]["label"]
+
+        return articles_list
+
+
+from sentence_transformers import SentenceTransformer, util
+import itertools
+import heapq
+
+
+class SemanticGrouping:
+
+    def __init__(self, model_id="sentence-transformers/all-MiniLM-L6-v2"):
+
+        self.model = SentenceTransformer(model_id)
+
+    def find_top_k_similar_articles(self, articles, k=5):
+        """
+        Finds the top-k most similar pairs of articles using cosine similarity.
+
+        Args:
+            articles (list of str): A list of article texts to compare.
+            k (int, optional): The number of top similar pairs to return. Defaults to 5.
+
+        Returns:
+            list of tuples: A list of (index1, index2, similarity_score) tuples.
+        """
+        embeddings = self.model.encode(articles, convert_to_tensor=True)
+        cosine_scores = util.pytorch_cos_sim(embeddings, embeddings)
+
+        pairs = itertools.combinations(range(len(articles)), 2)
+        similarity_scores = [(i, j, cosine_scores[i][j].item()) for i, j in pairs]
+
+        top_k_pairs = heapq.nlargest(k, similarity_scores, key=lambda x: x[2])
+
+        return top_k_pairs
