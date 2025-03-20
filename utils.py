@@ -107,11 +107,6 @@ class SentimentAnalyzer:
         return articles_list
 
 
-from sentence_transformers import SentenceTransformer, util
-import itertools
-import heapq
-
-
 class SemanticGrouping:
 
     def __init__(self, model_id="sentence-transformers/all-MiniLM-L6-v2"):
