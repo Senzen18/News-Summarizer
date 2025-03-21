@@ -176,8 +176,13 @@ class ChatBot:
         )
         structured_llm = self.llm.with_structured_output(ComparativeAnalyzer)
         chain = prompt | structured_llm
-        response = await chain.ainvoke({"article_1": article_1, "article_2": article_2,"id1" : id1, "id2" : id2})
-        return {f"comparison of {id1}, {id2}": response.comparison, "impact": response.impact}
+        response = await chain.ainvoke(
+            {"article_1": article_1, "article_2": article_2, "id1": id1, "id2": id2}
+        )
+        return {
+            f"comparison of {id1}, {id2}": response.comparison,
+            "impact": response.impact,
+        }
 
     async def main(self, similar_pairs: list):
         """Runs all OpenAI API calls in parallel."""
@@ -204,17 +209,18 @@ class ChatBot:
             asyncio.gather(*comparative_analysis_tasks),
         )
         return {
-            "topic_extraction_results" : topic_extraction_results,
-            "topic_overlap_results" : topic_overlap_results,
-            "comparative_analysis_results" : comparative_analysis_results
+            "topic_extraction_results": topic_extraction_results,
+            "topic_overlap_results": topic_overlap_results,
+            "comparative_analysis_results": comparative_analysis_results,
         }
+
     def final_analysis(self, comparative_analysis_articles):
         comparative_results = "Comparative Analysis: \n"
         for comparisons in comparative_analysis_articles:
             comparison, impact = comparisons.values()
             comparative_results += f"comparison: {comparison} \n impact: {impact} \n\n"
 
-        template =  """
+        template = """
         You are an AI assistant that reads a Comparative Analysis of Articles.
         And summarizes them to produce the final sentiment analysis.
         Make the final sentiment analysis less than 20 words
@@ -223,5 +229,5 @@ class ChatBot:
         """
         prompt = ChatPromptTemplate.from_template(template)
         chain = prompt | self.llm
-        response =  chain.invoke({"comparative_results" : comparative_results})
+        response = chain.invoke({"comparative_results": comparative_results})
         return response.content

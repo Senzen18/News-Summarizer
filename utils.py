@@ -3,11 +3,13 @@ from bs4 import BeautifulSoup
 from transformers import pipeline
 import pandas as pd
 from sentence_transformers import SentenceTransformer, util
-#from transformers import AutoModelForSequenceClassification, AutoTokenizer
+
+# from transformers import AutoModelForSequenceClassification, AutoTokenizer
 import itertools
 import re
 import heapq
 import torch
+
 
 def filter_articles(articles_list, company_name):
     """
@@ -89,8 +91,8 @@ class SentimentAnalyzer:
 
     def __init__(
         self, model_id="mrm8488/deberta-v3-ft-financial-news-sentiment-analysis"
-    ):  
-        device  =  "cuda:0" if torch.cuda.is_available()  else "cpu"
+    ):
+        device = "cuda:0" if torch.cuda.is_available() else "cpu"
         self.pipe = pipeline(task="text-classification", model=model_id, device=device)
 
     def classify_sentiments(self, articles_list):
