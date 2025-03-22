@@ -118,9 +118,10 @@ http://127.0.0.1:7860
 ---
 
 ## Deployment
-This project can be deployed on Hugging Face Spaces. To deploy:
-1. Push your repository to GitHub.
-2. Follow [Hugging Face Spaces documentation](https://huggingface.co/docs/spaces) for deployment.
+### This project is deployed on hugging face spaces. Both Backend and frontend interface are deployed seperately:
+### *Make sure to run the fast API link before gradio interface link.*
+1. To access the front end gradio click [Gradio Interface](https://senzen-news-summarizer-interface.hf.space)
+2. To access the back end Fast API endpoints click [Fast API endpoints](https://senzen-back-end.hf.space)
 
 ---
 
@@ -163,6 +164,4 @@ Feel free to contribute by:
 
 ---
 
-## Contact
-For queries, reach out at [your-email@example.com].
 
