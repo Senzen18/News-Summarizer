@@ -10,7 +10,20 @@ pinned: false
 short_description: An app for summarizing news articles on orgs.
 ---
 
+## Table of Contents
+- [Overview](#overview)
+- [Requirements](#requirements)
+- [Installation & Setup](#installation--setup)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [API Endpoints](#api-endpoints)
+- [Model Details](#model-details)
+- [Deployment](#deployment)
+- [Assumptions & Limitations](#assumptions--limitations)
+
 # News Summarization and Text-to-Speech Application
+
+---
 
 ## Overview
 This project is a web-based application that extracts key details from multiple news articles related to a given company, performs sentiment analysis, conducts a comparative analysis, and generates a text-to-speech (TTS) output in Hindi.
@@ -32,6 +45,14 @@ This project is a web-based application that extracts key details from multiple 
 - **Sentiment Analysis**: Pre-trained Transformer model
 - **Text-to-Speech**: Google TTS (gTTS)
 - **Deployment**: Uvicorn, Hugging Face Spaces
+
+---
+
+## Model Details
+- **News Extraction:** Implemented using `BeautifulSoup` for web scraping.
+- **Sentiment Analysis:** Utilizes `mrm8488/deberta-v3-ft-financial-news-sentiment-analysis`.
+- **Comparative Analysis:** Uses `sentence-transformers/all-MiniLM-L6-v2` for similarity scoring.
+- **Text-to-Speech:** Converts text into Hindi speech using `gTTS`.
 
 ---
 
