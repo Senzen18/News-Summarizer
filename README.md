@@ -178,12 +178,6 @@ http://127.0.0.1:7860
 
 ---
 
-## Contributing
-Feel free to contribute by:
-- Adding more news sources
-- Improving the sentiment model
-- Enhancing the UI
 
----
 
 
