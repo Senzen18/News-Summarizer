@@ -18,9 +18,9 @@ short_description: An app for summarizing news articles on orgs.
 - [Installation & Setup](#installation-and-setup)
 - [API Endpoints](#api-endpoints)
 - [File Structure](#file-structure)
-- [Assumptions & Limitations](#assumptions-&-limitations)
+- [Assumptions & Limitations](#assumptions-and-limitations)
 - [Deployment](#deployment)
-- [Assumptions & Limitations](#assumptions-&-limitations)
+- [Assumptions & Limitations](#assumptions-and-limitations)
 
 # News Summarization and Text-to-Speech Application
 
