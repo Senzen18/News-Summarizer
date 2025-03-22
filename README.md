@@ -1,3 +1,15 @@
+---
+title: News Summarizer
+emoji: 👁
+colorFrom: gray
+colorTo: green
+sdk: gradio
+sdk_version: 5.22.0
+app_file: app.py
+pinned: false
+short_description: An app for summarizing news articles on orgs.
+---
+
 # News Summarization and Text-to-Speech Application
 
 ## Overview
