@@ -27,8 +27,8 @@ This project is a web-based application that extracts key details from multiple 
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
-cd <repository-folder>
+git clone https://github.com/Senzen18/News-Summarizer.git
+cd News-Summarizer
 ```
 
 ### 2. Install Dependencies
