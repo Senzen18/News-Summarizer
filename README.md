@@ -12,12 +12,13 @@ short_description: An app for summarizing news articles on orgs.
 
 ## Table of Contents
 - [Overview](#overview)
-- [Requirements](#requirements)
-- [Installation & Setup](#installation--setup)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [API Endpoints](#api-endpoints)
+- [Features](#features)
+- [Tech Stacks](#tech-stack)
 - [Model Details](#model-details)
+- [Installation & Setup](#installation--setup)
+- [API Endpoints](#api-endpoints)
+- [File Structure](#file-structure)
+- [Assumptions & Limitations](#assumptions--limitations)
 - [Deployment](#deployment)
 - [Assumptions & Limitations](#assumptions--limitations)
 
