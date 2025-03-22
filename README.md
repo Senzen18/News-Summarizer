@@ -15,7 +15,7 @@ short_description: An app for summarizing news articles on orgs.
 - [Features](#features)
 - [Tech Stacks](#tech-stack)
 - [Model Details](#model-details)
-- [Installation & Setup](#installation-&-setup)
+- [Installation & Setup](#installation--setup)
 - [API Endpoints](#api-endpoints)
 - [File Structure](#file-structure)
 - [Assumptions & Limitations](#assumptions-&-limitations)
