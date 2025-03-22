@@ -38,14 +38,14 @@ class ComparativeAnalyzer(BaseModel):
         ..., description="A sentence of potential impacts from the compared articles."
     )
 
+
 class FinalAnalysis(BaseModel):
     """Summarizes the Comparative analysis."""
-    english: str = Field(
-        ..., description="Summarizes the analysis in english."
-    )
-    hindi: str = Field(
-        ..., description="Summarizes the analysis in hindi."
-    )
+
+    english: str = Field(..., description="Summarizes the analysis in english.")
+    hindi: str = Field(..., description="Summarizes the analysis in hindi.")
+
+
 class ChatBot:
     def __init__(
         self, api_key: str, model: str, articles_dict: list, company_name: str

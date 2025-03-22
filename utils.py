@@ -11,6 +11,7 @@ import heapq
 import torch
 from gtts import gTTS
 
+
 def filter_articles(articles_list, company_name):
     """
     Filters articles that only contain the company name.
@@ -86,9 +87,11 @@ def bs4_extractor(company_name: str):
     articles_filtered = filter_articles(articles_list, company_name)
     return articles_filtered
 
+
 def save_audio(hindi_text):
-    tts = gTTS(text=hindi_text, lang='hi', slow=False)
-    tts.save('output.mp3')
+    tts = gTTS(text=hindi_text, lang="hi", slow=False)
+    tts.save("output.mp3")
+
 
 class SentimentAnalyzer:
 
