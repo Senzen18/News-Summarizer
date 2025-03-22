@@ -6,7 +6,7 @@ This project is a web-based application that extracts key details from multiple 
 ## Features
 - **News Extraction**: Scrapes and displays at least 10 news articles from The New York Times and BBC.
 - **Sentiment Analysis**: Categorizes articles into Positive, Negative, or Neutral sentiments.
-- **Comparative Analysis**: Compares multiple articles to derive insights on how a company's news coverage varies.
+- **Comparative Analysis**: Groups articles with most semantic similarity. Then compares the groups to derive insights on how a company's news coverage varies.
 - **Text-to-Speech (TTS)**: Converts the summarized sentiment report into Hindi speech.
 - **User Interface**: Provides a simple web-based interface using Gradio.
 - **API Integration**: Implements FastAPI for backend communication.
@@ -16,7 +16,7 @@ This project is a web-based application that extracts key details from multiple 
 - **Frontend**: Gradio
 - **Backend**: FastAPI
 - **Scraping**: BeautifulSoup
-- **NLP**: OpenAI GPT models, LangChain
+- **NLP**: OpenAI GPT models, LangChain, Sentence Transformers
 - **Sentiment Analysis**: Pre-trained Transformer model
 - **Text-to-Speech**: Google TTS (gTTS)
 - **Deployment**: Uvicorn, Hugging Face Spaces
