@@ -37,18 +37,19 @@ Ensure you have Python 3.8+ installed. Then, run:
 pip install -r requirements.txt
 ```
 
-### 3. Run the Application
+### 3. To run Fast API endpoints
 Start the FastAPI backend:
 ```bash
 uvicorn api:app --host 127.0.0.1 --port 8000 --reload
 ```
 
-In a new terminal, run the Gradio frontend:
+### 4. To run the both Gradio and Fast API
+Start the FastAPI backend:
 ```bash
-python app.py
+gradio app.py
 ```
 
-### 4. Access the Application
+### 5. Access the Application
 Once started, access the Gradio UI at:
 ```
 http://127.0.0.1:7860
