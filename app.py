@@ -57,14 +57,6 @@ def compare_news(api_key, model_name, company_name):
         return f"Error: {response.json().get('detail', 'Something went wrong.')}"
 
 
-# def text_to_speech(text):
-#     """Read audio from the path."""
-#     if not text.strip():
-#         return "No text provided.", None
-#     tts = gTTS(text=text, lang="en")
-#     audio_path = "news_analysis.mp3"
-#     tts.save(audio_path)
-#     return text, audio_path
 def get_audio():
     response = requests.get(f"{API_URL}/hindi-summary")
     if response.status_code == 200:
