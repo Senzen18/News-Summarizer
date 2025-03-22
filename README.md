@@ -80,9 +80,9 @@ http://127.0.0.1:7860
 }
 ```
 
-### 4. Generate Hindi Summary Speech
+### 4. Generate Hindi Summary 
 **GET** `/hindi-summary`
-- Returns the summarized analysis in Hindi speech.
+- Returns the summarized analysis in Hindi and stores the speech file.
 
 ---
 
