@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-from utils import bs4_extractor, SentimentAnalyzer, SemanticGrouping
+from utils import bs4_extractor, SentimentAnalyzer, SemanticGrouping, save_audio
 from llm_utils import *
 import openai
 import asyncio
@@ -157,13 +157,21 @@ async def compare_news(request_info : CompareNewsRequest):
             topic_overlap_results,
             comparative_analysis_results,
         ) = llm_result.values()
-        final_analysis = llm_chatbot.final_analysis(comparative_analysis_results)
+        final_analysis_eng, final_analysis_hi = llm_chatbot.final_analysis(comparative_analysis_results)
 
         final_output = get_formatted_output(company_name, analyzed_articles, topic_extraction_results,
             topic_overlap_results,
-            comparative_analysis_results, final_analysis)
+            comparative_analysis_results, final_analysis_eng)
 
+        app.state.hindi_summary = final_analysis_hi
         return final_output
     
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+@app.get("/hindi-summary")
+def get_hindi_summary():
+    if not app.state.hindi_summary:
+        raise HTTPException(status_code=500, detail="Generate the Comparative Analysis first.")
+    save_audio(app.state.hindi_summary)
+    return {"hindi_summary" : app.state.hindi_summary}
