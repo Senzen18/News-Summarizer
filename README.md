@@ -175,6 +175,14 @@ http://127.0.0.1:7860
   "Audio": "[Play Hindi Speech]"
 }
 ```
+## Interface Output 
+![image](https://github.com/user-attachments/assets/b666b345-6abd-43a0-af9a-e5bc2529ee98)
+![image](https://github.com/user-attachments/assets/aceb9641-9c3b-4a1f-a7ad-3d870449017d)
+![image](https://github.com/user-attachments/assets/6c44130e-9d28-4cf8-8fbb-6724125f1f49)
+![image](https://github.com/user-attachments/assets/adc477d5-5220-405f-8eac-4664ef9dae1e)
+
+
+
 
 ---
 
