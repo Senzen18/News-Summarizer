@@ -136,7 +136,7 @@ http://127.0.0.1:7860
 - Only extracts articles from The New York Times and BBC.
 - Requires a valid OpenAI API key for sentiment analysis and comparison.
 - Hindi speech output uses gTTS, which requires an internet connection.
-
+- The Hugging Face Deployment maybe slow because of free tier.
 ---
 
 ## Deployment
